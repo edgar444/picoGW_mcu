@@ -316,4 +316,3 @@ void *core_util_atomic_incr_ptr(void **valuePtr, ptrdiff_t delta) {
 void *core_util_atomic_decr_ptr(void **valuePtr, ptrdiff_t delta) {
     return (void *)core_util_atomic_decr_u32((uint32_t *)valuePtr, (uint32_t)delta);
 }
-

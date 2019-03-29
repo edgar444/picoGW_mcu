@@ -335,4 +335,3 @@ extern "C" void $Sub$$free(void *ptr) {
 #endif
 
 #endif // #if defined(TOOLCHAIN_GCC)
-

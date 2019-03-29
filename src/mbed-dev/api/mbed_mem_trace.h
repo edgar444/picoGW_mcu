@@ -135,4 +135,3 @@ void mbed_mem_trace_default_callback(uint8_t op, void *res, void *caller, ...);
 #endif
 
 #endif// #ifndef __MBED_MEM_TRACE_H__
-

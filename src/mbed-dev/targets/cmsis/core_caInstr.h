@@ -42,4 +42,3 @@
 #undef  __CORTEX_M
 
 #endif
-

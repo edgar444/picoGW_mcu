@@ -82,4 +82,3 @@ int mbedtls_hardware_poll( void *data, unsigned char *output, size_t len, size_t
 }
 #endif /* STM32F405xx || STM32F415xx || STM32F407xx || STM32F417xx || STM32F427xx || STM32F437xx ||\
           STM32F429xx || STM32F439xx || STM32F410xx || STM32F469xx || STM32F479xx */
-

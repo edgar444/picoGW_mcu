@@ -75,4 +75,3 @@ struct serial_s {
 #endif
 
 #endif
-

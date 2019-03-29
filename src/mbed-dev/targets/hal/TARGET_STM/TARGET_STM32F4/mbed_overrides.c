@@ -50,4 +50,3 @@ void HAL_Delay(__IO uint32_t Delay)
     uint32_t start = us_ticker_read();
     while ((us_ticker_read() - start) < (uint32_t)(Delay * 1000));
 }
-

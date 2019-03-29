@@ -60,4 +60,3 @@ void ethernet_set_link(int speed, int duplex);
 #endif
 
 #endif
-

@@ -533,4 +533,3 @@ void can_irq_set(can_t *obj, CanIrqType type, uint32_t enable)
 }
 
 #endif // DEVICE_CAN
-
