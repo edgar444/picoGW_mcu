@@ -234,7 +234,7 @@ void SystemInit(void)
   /* Configure the System clock source, PLL Multiplier and Divider factors,
      AHB/APBx prescalers and Flash settings */
   SetSysClock();
-  
+
   /* Reset the timer to avoid issues after the RAM initialization */
   TIM_MST_RESET_ON;
   TIM_MST_RESET_OFF;  
@@ -325,8 +325,8 @@ void SystemCoreClockUpdate(void)
 }
 
 #if defined (DATA_IN_ExtSRAM) && defined (DATA_IN_ExtSDRAM)
-#if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) ||defined(STM32F469xx) || defined(STM32F479xx)
-
+#if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) ||\
+    defined(STM32F469xx) || defined(STM32F479xx)
 /**
   * @brief  Setup the external memory controller.
   *         Called in startup_stm32f4xx.s before jump to main.

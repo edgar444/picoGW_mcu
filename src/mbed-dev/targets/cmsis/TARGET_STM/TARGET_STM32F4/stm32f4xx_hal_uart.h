@@ -6,7 +6,7 @@
   * @date    06-May-2016
   * @brief   Header file of UART HAL module.
   ******************************************************************************
-  * @attention 
+  * @attention
   *
   * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
   *
