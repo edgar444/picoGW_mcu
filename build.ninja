@@ -303,20 +303,22 @@ asmflags = $
   -mtune=cortex-m4 $
   -mfpu=fpv4-sp-d16
 
+allflags = -g -Og
+
 rule asmcompile
-  command = $cc $asmflags -c $in -o $out
+  command = $cc $asmflags -c $in -o $out $allflags
 
 rule compile
-  command = $cc $cflags -c $in -o $out
+  command = $cc $cflags -c $in -o $out $allflags
 
 rule cxxcompile
-  command = $cxx $cflags -fno-rtti -c $in -o $out
+  command = $cxx $cflags -fno-rtti -c $in -o $out $allflags
 
 rule preproc
-  command = $cpp $cppflags $in -o $out
+  command = $cpp $cppflags $in -o $out $allflags
 
 rule link
-  command = $ld --output $out $objs $ldflags -T bin/lgw_fw_usb.link_script.ld -Wl,-Map=bin/lgw_fw_usb.map $ldsyslibs
+  command = $ld --output $out $objs $ldflags -T bin/lgw_fw_usb.link_script.ld -Wl,-Map=bin/lgw_fw_usb.map $ldsyslibs $allflags
 
 rule elf2hex
   command = arm-none-eabi-objcopy -O ihex $in $out
