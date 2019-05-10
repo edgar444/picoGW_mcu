@@ -303,7 +303,7 @@ asmflags = $
   -mtune=cortex-m4 $
   -mfpu=fpv4-sp-d16
 
-allflags = -g -Og
+allflags = -Og -ggdb3
 
 rule asmcompile
   command = $cc $asmflags -c $in -o $out $allflags
@@ -315,7 +315,7 @@ rule cxxcompile
   command = $cxx $cflags -fno-rtti -c $in -o $out $allflags
 
 rule preproc
-  command = $cpp $cppflags $in -o $out $allflags
+  command = $cpp $cppflags $in -o $out
 
 rule link
   command = $ld --output $out $objs $ldflags -T bin/lgw_fw_usb.link_script.ld -Wl,-Map=bin/lgw_fw_usb.map $ldsyslibs $allflags
