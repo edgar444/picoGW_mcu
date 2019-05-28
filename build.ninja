@@ -162,19 +162,12 @@ objs = $
 imports = $
   -I src/MAIN $
   -I src/SX1308HAL/inc $
-  -I src/mbed-dev $
   -I src/mbed-dev/api $
   -I src/mbed-dev/common $
   -I src/mbed-dev/hal $
-  -I src/mbed-dev/hal/storage_abstraction $
-  -I src/mbed-dev/targets $
   -I src/mbed-dev/targets/cmsis $
-  -I src/mbed-dev/targets/cmsis/TARGET_STM $
   -I src/mbed-dev/targets/cmsis/TARGET_STM/TARGET_STM32F4 $
   -I src/mbed-dev/targets/cmsis/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F401RE $
-  -I src/mbed-dev/targets/cmsis/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F401RE/TOOLCHAIN_ARM_STD $
-  -I src/mbed-dev/targets/hal $
-  -I src/mbed-dev/targets/hal/TARGET_STM $
   -I src/mbed-dev/targets/hal/TARGET_STM/TARGET_STM32F4 $
   -I src/mbed-dev/targets/hal/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F401RE $
   -I src/usb_cdc/Inc $
