@@ -323,6 +323,9 @@ rule link
 rule elf2hex
   command = arm-none-eabi-objcopy -O ihex $in $out
 
+rule elf2bin
+  command = arm-none-eabi-objcopy -O ihex $in $out
+
 rule hex2dfu
   command = dfu-convert -i $in $out
 
@@ -484,6 +487,8 @@ build bin/stm32f4xx_it.o: cxxcompile src/usb_cdc/Src/stm32f4xx_it.cpp
 build bin/lgw_fw_usb.elf: link bin/lgw_fw_usb.link_script.ld bin/stm32f4xx_hal_rng.o bin/startup_stm32f401xe.o bin/loragw_hal.o bin/loragw_reg.o bin/main.o bin/cmdusb.o bin/board.o bin/analogin_api.o bin/analogin.o bin/analogout_api.o bin/busin.o bin/businout.o bin/busout.o bin/callchain.o bin/can_api.o bin/can.o bin/cmsis_nvic.o bin/entropy_hardware_poll.o bin/ethernet.o bin/filebase.o bin/filelike.o bin/filepath.o bin/filesystemlike.o bin/gpio_api.o bin/gpio_irq_api.o bin/hal_tick.o bin/i2c_api.o bin/i2c.o bin/i2cslave.o bin/interruptin.o bin/interruptmanager.o bin/localfilesystem.o bin/mbed_alloc_wrappers.o bin/mbed_assert.o bin/mbed_board.o bin/mbed_critical.o bin/mbed_error.o bin/mbed_gpio.o bin/mbed_interface.o bin/mbed_lp_ticker_api.o bin/mbed_mem_trace.o bin/mbed_overrides.o bin/mbed_pinmap_common.o bin/mbed_rtc_time.o bin/mbed_semihost_api.o bin/mbed_ticker_api.o bin/mbed_us_ticker_api.o bin/mbed_wait_api.o bin/peripheralpins.o bin/pinmap.o bin/port_api.o bin/pwmout_api.o bin/rawserial.o bin/retarget.o bin/rtc_api.o bin/serial_api.o bin/serialbase.o bin/serial.o bin/sleep.o bin/spi_api.o bin/spi.o bin/spislave.o bin/stm32f4xx_hal_adc_ex.o bin/stm32f4xx_hal_adc.o bin/stm32f4xx_hal_can.o bin/stm32f4xx_hal_cec.o bin/stm32f4xx_hal_cortex.o bin/stm32f4xx_hal_crc.o bin/stm32f4xx_hal_cryp_ex.o bin/stm32f4xx_hal_cryp.o bin/stm32f4xx_hal_dac_ex.o bin/stm32f4xx_hal_dac.o bin/stm32f4xx_hal_dcmi_ex.o bin/stm32f4xx_hal_dcmi.o bin/stm32f4xx_hal_dfsdm.o bin/stm32f4xx_hal_dma2d.o bin/stm32f4xx_hal_dma_ex.o bin/stm32f4xx_hal_dma.o bin/stm32f4xx_hal_dsi.o bin/stm32f4xx_hal_eth.o bin/stm32f4xx_hal_flash_ex.o bin/stm32f4xx_hal_flash.o bin/stm32f4xx_hal_flash_ramfunc.o bin/stm32f4xx_hal_fmpi2c_ex.o bin/stm32f4xx_hal_fmpi2c.o bin/stm32f4xx_hal_gpio.o bin/stm32f4xx_hal_hash_ex.o bin/stm32f4xx_hal_hash.o bin/stm32f4xx_hal_hcd.o bin/stm32f4xx_hal_i2c_ex.o bin/stm32f4xx_hal_i2c.o bin/stm32f4xx_hal_i2s_ex.o bin/stm32f4xx_hal_i2s.o bin/stm32f4xx_hal_irda.o bin/stm32f4xx_hal_iwdg.o bin/stm32f4xx_hal_lptim.o bin/stm32f4xx_hal_ltdc_ex.o bin/stm32f4xx_hal_ltdc.o bin/stm32f4xx_hal_msp_template.o bin/stm32f4xx_hal_nand.o bin/stm32f4xx_hal_nor.o bin/stm32f4xx_hal.o bin/stm32f4xx_hal_pccard.o bin/stm32f4xx_hal_pcd_ex.o bin/stm32f4xx_hal_pcd.o bin/stm32f4xx_hal_pwr_ex.o bin/stm32f4xx_hal_pwr.o bin/stm32f4xx_hal_qspi.o bin/stm32f4xx_hal_rcc_ex.o bin/stm32f4xx_hal_rcc.o bin/system_stm32f4xx.o bin/stm32f4xx_hal_rtc_ex.o bin/stm32f4xx_hal_rtc.o bin/stm32f4xx_hal_sai_ex.o bin/stm32f4xx_hal_sai.o bin/stm32f4xx_hal_sd.o bin/stm32f4xx_hal_sdram.o bin/stm32f4xx_hal_smartcard.o bin/stm32f4xx_hal_spdifrx.o bin/stm32f4xx_hal_spi.o bin/stm32f4xx_hal_sram.o bin/stm32f4xx_hal_tim_ex.o bin/stm32f4xx_hal_tim.o bin/stm32f4xx_hal_uart.o bin/stm32f4xx_hal_usart.o bin/stm32f4xx_hal_wwdg.o bin/stm32f4xx_ll_fmc.o bin/stm32f4xx_ll_fsmc.o bin/stm32f4xx_ll_sdmmc.o bin/stm32f4xx_ll_usb.o bin/stream.o bin/sx1308.o bin/ticker.o bin/timeout.o bin/timerevent.o bin/timer.o bin/us_ticker.o bin/usb_device.o bin/usbd_cdc.o bin/usbd_cdc_if.o bin/usbd_core.o bin/usbd_desc.o bin/usbd_conf.o bin/usbd_ctlreq.o bin/usbd_ioreq.o bin/stm32f4xx_it.o
 
 build bin/lgw_fw_usb.hex: elf2hex bin/lgw_fw_usb.elf
+
+build bin/lgw_fw_usb.bin: elf2bin bin/lgw_fw_usb.elf
 
 build bin/lgw_fw_usb.dfu: hex2dfu bin/lgw_fw_usb.hex
 

@@ -17,7 +17,7 @@ tmux set-option -g history-limit 1000000 \; \
 	send-keys -l "watch -tn.7 'lsusb -d 0483:'"$'\n'
 ```
 
-Setup Toolchain env, start cgdb debugger:
+Debugging via cgdb:
 
 ```
 # Opinionated Share functions
@@ -71,4 +71,25 @@ tmux set-option -g history-limit 1000000 \; \
 	send-keys -l "$toolchain"'' \; \
 	split-window -v -l 2 \; \
 	send-keys -l "watch -tn.7 'lsusb -d 0483:'"$'\n'
+```
+
+Interceptty:
+
+```
+tmux set-option -g history-limit 1000000 \; \
+	new-session -s itty \; \
+	set-option mouse on \; \
+	send-keys -l "clear; interceptty -s 'ispeed 115200 ospeed 115200' /dev/ttyACM0 /dev/ttyV0 | tee /tmp/itty | grep '^>' --color=always --line-buffered | ts '%H:%M:%.S'"$'\n' \; \
+	split-window -h \; \
+	send-keys -l $'clear; tail -f /tmp/itty | ts "%H:%M:%.S"\n' \; \
+	split-window -h \; \
+	send-keys -l "clear; unbuffer bash -c \"cat /dev/ttyV0 | hexdump -v -e '/1 \\\"0x%02x\n\\\"'\" | ts \"%H:%M:%.S\""$'\n' \; \
+	split-window -h \; \
+	resize-pane -t 0 -x 32 \; \
+	resize-pane -t 1 -x 32 \; \
+	resize-pane -t 2 -x 20 \; \
+	send-keys -l "clear"$'\n'"printf 'l\0\x4\0\x1\xa\0\x6' > /dev/ttyV0"
+
+
+
 ```
